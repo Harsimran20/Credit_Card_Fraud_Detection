@@ -1,21 +1,32 @@
-🚀 Credit Card Fraud Detection
-📌 Table of Contents
-Project Overview
 
-Dataset
+# 🚀 Credit Card Fraud Detection
 
-Installation
+📌 **Table of Contents**
+1. [Project Overview](#project-overview)
+2. [Dataset](#dataset)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Model Overview](#model-overview)
+6. [Results](#results)
+7. [License](#license)
 
-Usage
+---
 
-Model Overview
+## 📖 Project Overview
 
-Results
+Credit card fraud detection is a critical challenge in the financial sector. This project aims to build a machine learning pipeline that accurately detects fraudulent transactions using real-world data. It includes:
+- Exploratory data analysis (EDA)
+- Data preprocessing and balancing
+- Feature selection and engineering
+- Model training and evaluation
+- Performance visualization
 
-📖 Project Overview
-This project aims to detect fraudulent credit card transactions using machine learning classification techniques. It involves data preprocessing, feature engineering, and model evaluation to build a robust fraud detection system [6].
+The goal is to identify fraud in a highly imbalanced dataset with a focus on minimizing false negatives.
 
-📂 Dataset
+---
+
+## 📂 Dataset
+
  The dataset contains 284,807 transactions with 31 features including:
 
 Time: This shows how many seconds have passed since the first transaction in the dataset.
@@ -23,25 +34,66 @@ V1-V28: These are special features created to hide sensitive information about t
 Amount: Transaction amount.
 Class: Target variable (0 for normal transactions, 1 for fraudulent transactions).
 
-⚙️ Installation
+### Features:
+- `Time`: Time in seconds since the first transaction
+- `V1` to `V28`: PCA-transformed features to protect confidentiality
+- `Amount`: Purchase amount
+- `Class`: Target variable (0 = legitimate, 1 = fraud)
 
+The data is highly imbalanced, which poses a challenge for model performance.
+
+---
+
+## ⚙️ Installation
+
+To set up the project environment, run:
+
+```bash
 git clone repository
 cd credit-card-fraud-detection
 pip install -r requirements.txt
-▶️ Usage
-To run the project:
+```
+
+---
+
+## ▶️ Usage
+
+To execute the full pipeline:
+
 python main.py
-🧠 Model Overview
-Algorithms used:
 
-Logistic Regression
+Output metrics and visualizations will be stored in the `/outputs` directory.
 
-Random Forest
+---
 
-XGBoost
+## 🧠 Model Overview
 
-Evaluation metrics: Precision, Recall, F1-score, ROC-AUC.
+This project experiments with several machine learning algorithms:
 
-📊 Results
-The best model achieved an ROC-AUC score of 0.98, with high recall for fraudulent cases.
+- **Logistic Regression**: A baseline linear model
+- **Random Forest**: Ensemble of decision trees for improved performance
+- **XGBoost**: Gradient boosting model for high accuracy
+- **Isolation Forest**: Anomaly detection algorithm for unsupervised scenarios
+- **SMOTE**: Applied for oversampling the minority class to address imbalance
+
+Evaluation metrics include:
+- Accuracy
+- Precision
+- Recall
+- F1-score
+- ROC-AUC Curve
+
+---
+
+## 📊 Results
+
+- **Random Forest** achieved a recall of **0.92**, balancing detection rate with low false positives.
+- **XGBoost** had the best overall F1-score.
+- Confusion matrices and ROC curves are provided in `/plots`.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See `LICENSE` for more details.
 
